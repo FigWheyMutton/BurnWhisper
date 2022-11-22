@@ -3,7 +3,7 @@ const { User } = require('../models');
 
 router.get('/', async (req,res) => {
     try {
-        const allRoutes = await User.findAll();
+        const allRoutes = await Comment.findAll();
         const homeRoute = allRoutes.map((userData) => userData.get({plain: true}));
         console.log(homeRoute)
         res.render('homepage', {homeRoute});

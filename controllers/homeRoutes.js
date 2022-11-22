@@ -1,12 +1,13 @@
+const sequelize = require('../config/connection');
+const { Post, User, Comment } = require('../models');
 const router = require('express').Router();
-const { User } = require('../models');
 
 router.get('/', async (req,res) => {
     try {
-        const allRoutes = await Comment.findAll();
-        const homeRoute = allRoutes.map((userData) => userData.get({plain: true}));
-        console.log(homeRoute)
-        res.render('homepage', {homeRoute});
+        const allComments = await Comment.findAll();
+        const serializedComments = allComments.map((userData) => userData.get({plain: true}));
+        console.log(serializedComments)
+        res.render('homepage', {serializedComments});
     } catch (err) {
         res.status(500).json(err);
     }

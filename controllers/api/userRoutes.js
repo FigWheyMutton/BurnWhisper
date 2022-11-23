@@ -7,7 +7,7 @@ const passport = require('../../utils/passport');
 router.get('/',  (req, res) => {
     // access our user model and run .findAll() method -- similar to SELECT * FROM users;
     User.findAll({
-        attributes: { exclude: ['[password']}
+        attributes: { exclude: ['password']}
     })
     .then(dbUserData => res.json(dbUserData))
     .catch(err => {
@@ -60,8 +60,6 @@ router.post('/', (req, res) => {
         username: req.body.username,
         email: req.body.email,
         password: req.body.password,
-        github: req.body.github,
-        linkedin: req.body.linkedin,
         bio: req.body.bio
     })
     // prior to passport, we store to session, but with passport we must login to enable package

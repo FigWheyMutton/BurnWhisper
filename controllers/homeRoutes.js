@@ -1,10 +1,11 @@
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
-const { session } = require('passport');
+const withAuth = require('../utils/auth');
 const router = require('express').Router();
 
 // rendering all posts to homepage
-router.get('/', (req, res) => {
+router.get('/', // withAuth, */
+(req, res) => {
     console.log(req.session);
 
     Post.findAll({
@@ -37,8 +38,8 @@ router.get('/', (req, res) => {
     
           // defining log-in status
           let loginStatus;
-          if (typeof req.session.passport != 'undefined') {
-            loginStatus = req.session.passport.user;
+          if (typeof req.session != 'undefined') {
+            loginStatus = req.session.user;
             console.log('loginStatus', loginStatus);
           } else {
               loginStatus = false;

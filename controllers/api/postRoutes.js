@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Post, User, Vote, Comment } = require('../../models');
-const passportAuth = require('../../utils/auth');
+const withAuth = require('../../utils/auth');
 
 
 // get all posts; GET "/api/posts"
@@ -89,11 +89,11 @@ router.get('/:id', (req,res)=>{
 
 
 // create a post; POST /api/posts
-router.post('/', passportAuth, (req,res)=>{
+router.post('/', withAuth, (req,res)=>{
     //expects {post_text, user_id}
     Post.create({
         post_text: req.body.post_text,
-        user_id: req.session.passport.user.id
+        user_id: req.session.user.id
     })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
@@ -104,11 +104,11 @@ router.post('/', passportAuth, (req,res)=>{
 
 
 // PUT /api/posts/upvote
-router.put('/upvote', passportAuth, (req, res) => {
+router.put('/upvote', withAuth, (req, res) => {
     // make sure the session exists first
-    if (req.session.passport) {
+    if (req.session) {
       // pass session.passport id along with all destructured properties on req.body
-      Post.upvote({ ...req.body, user_id: req.session.passport.user.id }, { Vote, Comment, User })
+      Post.upvote({ ...req.body, user_id: req.session.user.id }, { Vote, Comment, User })
         .then(updatedVoteData => res.json(updatedVoteData))
         .catch(err => {
           console.log(err);
@@ -145,7 +145,7 @@ router.put('/:id', (req,res) => {
 
 
 //delete a post; DELETE /api/posts/1 
-router.delete('/:id', passportAuth, (req,res)=>{
+router.delete('/:id', withAuth, (req,res)=>{
     Post.destroy({
         where: {
             id: req.params.id

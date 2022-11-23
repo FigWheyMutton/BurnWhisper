@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Vote, Comment } = require('../../models');
-const passportAuth = require('../../utils/auth');
-const passport = require('../../utils/passport');
+const withAuth = require('../../utils/auth');
 
 // GET /api/users
 router.get('/',  (req, res) => {
@@ -62,29 +61,60 @@ router.post('/', (req, res) => {
         password: req.body.password,
         bio: req.body.bio
     })
-    // prior to passport, we store to session, but with passport we must login to enable package
     .then(dbUserData => {
         res.redirect('/login')      
         });
 });
 
 
-// login using passport methods
-router.post('/login', passport.authenticate('local'), function(req, res) {
-    res.render('homepage', 
-    {loggedIn: req.session.passport.user.id});
-});
+// login using express methods
+router.post('/login', async (req, res) => {
+    try {
+      const userData = await User.findOne({ where: { email: req.body.email } });
+  
+      if (!userData) {
+        res
+          .status(400)
+          .json({ message: 'Incorrect email or password, please try again' });
+        return;
+      }
+  
+      const validPassword = await userData.checkPassword(req.body.password);
+  
+      if (!validPassword) {
+        res
+          .status(400)
+          .json({ message: 'Incorrect email or password, please try again' });
+        return;
+      }
+  
+      req.session.save(() => {
+        req.session.user_id = userData.id;
+        req.session.logged_in = true;
+        
+        res.json({ user: userData, message: 'You are now logged in!' });
+      });
+  
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  });
 
 
 // Logout using passport methods
-router.post('/logout', function(req, res,) {
-    req.logout();
-    res.redirect('/');
+router.post('/logout', (req, res) => {
+    if (req.session.logged_in) {
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    } else {
+      res.status(404).end();
+    }
   });
 
 
 // PUT /api/users/1 - similar to UPDATE 
-router.put('/:id', passportAuth, (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     User.update(req.body, {
         individualHooks: true,
         where: {
@@ -107,7 +137,7 @@ router.put('/:id', passportAuth, (req, res) => {
 
 
 // DELETE /api/users/1
-router.delete('/:id', passportAuth, (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     User.destroy({
         where: {
             id: req.params.id

@@ -43,8 +43,8 @@ router.get('/:post_text', (req, res) => {
 
         // defining loggedIn using loginStatus
         let loginStatus;
-          if (typeof req.session.passport != 'undefined') {
-            loginStatus =  req.session.passport.user;
+          if (typeof req.session.express != 'undefined') {
+            loginStatus =  req.session.express.user;
           } else {
               loginStatus = false;
           }         

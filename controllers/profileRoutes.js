@@ -1,18 +1,18 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
-const passportAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
 // profile displaying posts created by logged in users 
-router.get('/', passportAuth,(req, res) => {
+router.get('/', withAuth,(req, res) => {
     
   // The Promise.all allows us to have two findAll queries
   Promise.all ([
   
     User.findAll({
         where: {
-            // use the ID from passport
-            id: req.session.passport.user.id
+            // use the ID from express-session
+            id: req.session.express.user.id
     
         },
         attributes: [
@@ -24,8 +24,8 @@ router.get('/', passportAuth,(req, res) => {
 
     Post.findAll({
         where: {
-        // use the ID from passport
-        user_id: req.session.passport.user.id
+        // use the ID from express
+        user_id: req.session.user.id
         },
         attributes: [
             'id',
@@ -55,8 +55,8 @@ router.get('/', passportAuth,(req, res) => {
 
         // defining loggenIn using loginStatus
         let loginStatus;
-          if (typeof req.session.passport != 'undefined') {
-            loginStatus =  req.session.passport.user;
+          if (typeof req.session.express != 'undefined') {
+            loginStatus =  req.session.express.user;
           } else {
               loginStatus = false;
           }         
@@ -74,7 +74,7 @@ router.get('/', passportAuth,(req, res) => {
       
 
 // profile by id which will allow a logged-in user the ability to see a different user's profile
-router.get('/:id', passportAuth, (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
   
   // the Promise.all allows us two findOne queries
   Promise.all ([
@@ -120,8 +120,8 @@ router.get('/:id', passportAuth, (req, res) => {
 
       // defining loggenIn using loginStatus
       let loginStatus;
-          if (typeof req.session.passport != 'undefined') {
-            loginStatus =  req.session.passport.user;
+          if (typeof req.session != 'undefined') {
+            loginStatus =  req.session.user;
           } else {
               loginStatus = false;
           }

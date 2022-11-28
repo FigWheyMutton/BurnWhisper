@@ -19,7 +19,7 @@
     font-size: 40px;
     padding: 2rem;
     opacity: 90%;
-    background-image: url("./images/images-removebg-preview.png")
+    background-image: url("/assets/header.png")
   }
   .button {
     background-color: #ce949c;

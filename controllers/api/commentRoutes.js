@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Comment } = require('../../models');
-const passportAuth = require('../../utils/auth');
+const withAuth = require('../../utils/auth');
 
 
 // get all comments; GET /api/comments
@@ -38,13 +38,13 @@ router.get('/:id', (req, res) => {
 
 
 // create a comment by an authenticated user; POST /api/comments
-router.post('/', passportAuth, (req,res) => {
+router.post('/', withAuth, (req,res) => {
     //check session
     if (req.session){
         Comment.create({
             comment_text: req.body.comment_text,
             //user_id: req.session.user_id,
-            user_id: req.session.passport.user.id,
+            user_id: req.session.user.id,
             post_id: req.body.post_id
         })
         .then(dbCommentData => res.json(dbCommentData))

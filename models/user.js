@@ -2,41 +2,12 @@ const { Model, DataTypes, Sequelize } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
 
-class User extends Model {}
-
-// var user = sequelize.define('users', {
-//     id: {
-//         type: Sequelize.INTEGER,
-//         unique: true,
-//         allowNull: false,
-//         primaryKey: true,
-//         autoIncrement: true
-//     },
-//     username: {
-//         type: Sequelize.STRING,
-//         unique: true,
-//         allowNull: false
-//     },
-//     password: {
-//         type: Sequelize.STRING,
-//         allowNull: false
-//     }
-// });
-
-// User.beforeCreate((user, options)  => {
-//     const salt = bcrypt.genSaltSync();
-//     user.password = bcrypt.hashSync(user.password, salt);
-// });
-
-// User.prototype.validPassword = function(password) {
-//     return bcrypt.compareSync(password, this.password);
-// };
-
-// sequelize.sync()
-//     .then(() => console.log('user tables has been sucesssful craeted'))
-//     .catch(error => console.log('error has occured'));
-
-//     module.exports = User;
+class User extends Model {
+    // set up method to run on instance data (per user) to check password 
+    checkPassword(loginPW) {
+        return bcrypt.compareSync(loginPW, this.password);
+    }
+}
 
 User.init(
     {
@@ -76,12 +47,26 @@ User.init(
       }
     },
     {
-        sequelize,
-        timestamps: false,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'user'
-      }
+   
+      hooks: {
+        // set up beforeCreate lifecycle "hook" functionality
+         beforeCreate: async(newUserData) => {
+            newUserData.password = await bcrypt.hash(newUserData.password, 10);
+            return newUserData;
+            
+        },
+        // set up beforeUpdate lifecycle "hook" functionality
+         beforeUpdate: async(updatedUserData) => {
+            updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+            return updatedUserData;
+        }
+    },
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'user'
+}
     );
     
     module.exports = User;

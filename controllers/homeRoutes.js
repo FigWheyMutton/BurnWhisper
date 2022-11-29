@@ -1,6 +1,5 @@
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
-const withAuth = require('../utils/auth');
 const router = require('express').Router();
 
 // rendering all posts to homepage
@@ -37,15 +36,15 @@ router.get('/', // withAuth, */
           const posts = dbPostData.map(post => post.get({ plain: true }));
     
           // defining log-in status
-          let loginStatus;
-          if (typeof req.session != 'undefined') {
-            loginStatus = req.session.user;
-            console.log('loginStatus', loginStatus);
-          } else {
-              loginStatus = false;
-          }
+          // let loginStatus;
+          // if (typeof req.session != 'undefined') {
+          //   loginStatus = req.session.user_id;
+          //   console.log('loginStatus', loginStatus);
+          // } else {
+          //     loginStatus = false;
+          // }
           
-          res.render('homepage', { posts,  loggedIn: loginStatus }
+          res.render('homepage', { posts,  loggedIn: req.session.logged_in }
           );
         })
         .catch(err => {

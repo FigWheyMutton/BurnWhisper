@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<link rel="stylesheet" href="/public/css/styles.css">
+
+<link rel="stylesheet" href="/css/styles.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
 
 <title>BW</title>
@@ -36,6 +36,36 @@
     <a href="#" class="pure-menu-link pure-menu-heading">Login</a>
     </ul>
 </header>
+
+</div>
+<div class="navbar2 button">
+  <input type="text" class="form-control search-query">
+  <span class="input-group-btn">
+      <button class="btn">Search</button>
+  </span>
+</div>
+
+<div class="row">
+  <div class="side">
+    <h2>Search Schools</h2>
+    <h5></h5>
+    <div class="fakeimg" style="height:200px;"></div>
+    <p></p>
+    <h3></h3>
+    <p></p>
+    <div class="fakeimg" style="height:60px;">UCR</div><br>
+    <div class="fakeimg" style="height:60px;">UCLA</div><br>
+    <div class="fakeimg" style="height:60px;">USC</div>
+  </div>
+  {{!-- {{#if !logged_in}}
+    <div class="main">
+      <h2 class = "postinfo"></h2>
+      <p>Please Log In to see posts</p>
+    </div>
+  {{/if}} --}}
+  {{{body}}}
+</body>
+</html>
 
 </div>
 <div class="navbar2 button">

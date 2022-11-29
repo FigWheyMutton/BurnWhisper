@@ -1,97 +1,146 @@
 * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-  }
-  
-  .header {
-    padding: .4px;
-    text-align: center;
-    background: #ffffff;
-    color: rgb(47, 45, 45);
-    font-style: oblique;
-  }
-  
-  .header h1 {
-    font-size: 40px;
-    padding: 2rem;
-    opacity: 90%;
-    background-image: url("/assets/header.png")
-  }
-  .button {
-    background-color: #ce949c;
-    border: none;
-    color: white;
-    padding: 20px 22rem;
-    text-align: right;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    flex-wrap: wrap;
+  box-sizing: border-box;
+}
 
-  }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
 
-  .btn {
-    color: rgb(255, 255, 255);
-    background-color: rgb(0, 0, 0);
+.header {
+  padding: .4px;
+  text-align: center;
+  background: #ffffff;
+  color: rgb(47, 45, 45);
+  font-style: oblique;
+}
 
-  }
-   
-  .row {  
-    display: -ms-flexbox; /* IE10 */
-    display: flex;
-    -ms-flex-wrap: wrap; /* IE10 */
-    flex-wrap: wrap;
-  }
+.header h1 {
+  font-size: 40px;
+  padding: 2rem;
+  opacity: 90%;
+  background-image: url("/assets/header.png")
+}
+.button {
+  background-color: #ce949c;
+  border: none;
+  color: white;
+  padding: 20px 22rem;
+  text-align: right;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  flex-wrap: wrap;
 
-  .side {
-    -ms-flex: 30%; /* IE10 */
-    flex: 10%;
-    background-color: #fbfbfb;
-    padding: 8px;
+}
+
+.btn {
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+
+}
+ 
+.row {  
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
+
+/* added formatting for content */
+.side {
+  -ms-flex: 30%; /* IE10 */
+  flex: 10%;
+  background-color: #fbfbfb;
+  padding: 5px 10px 0px 10px;
+}
+
+/* ADDED CSS FOR NAVBARS */
+.navbar {
+  display:flex;
+  align-items: center;
+  min-height: 60px;
+  background-color: #ce949c;
+  justify-content: right;
+  padding-left: 50px;
+}
+
+.navbar a{
+  font-weight: bold;
+  color: black;
+}
+
+.navbar2 {
+display:flex;
+justify-content: right;
+align-items: center;
+min-height: 40px;
+background-color: #ce949c;
+padding-right: 10px;
+}
+/* //ADDED IN FOR THE HOMEPAGE CSS */
+.main {   
+  display: flex;
+  -ms-flex: 70%; /* IE10 */
+  flex: 70%;
+  margin: 20px 5px 20px 5px;
+  background-color: rgb(114, 96, 96);
+  width: 100%;
+  height:fit-content;
+  flex-direction: column;
+}
+
+.postinfo {
+  height: fit-content;
+  width: 100%;
+  border-bottom: black solid;
+  padding: 0px 0px 10px 10px;
+}
+
+.bottombar {
+display:flex;
+max-height: 40px;
+width: 100%;
+border-top: black solid;
+}
+
+.upvotes{
+  max-width: inherit;
+  max-height: inherit;
+}
+/*ALL FOR HOMEPAGE CSS  */
+
+.fakeimg {
+  background-color: rgb(114, 96, 96);
+  max-width: 20%;
+  padding: 20px;
+}
+
+.footer {
+  padding: 10px;
+  text-align: center;
+  background: #ddd;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
   }
-  
-  .main {   
-    -ms-flex: 70%; /* IE10 */
-    flex: 70%;
-    background-color: white;
-    padding: 20px;
-  }
-  
-  .fakeimg {
-    background-color: rgb(114, 96, 96);
-    width: 100%;
-    padding: 20px;
-  }
-  
-  .footer {
-    padding: 10px;
-    text-align: center;
-    background: #ddd;
-  }
-  
-  /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
-  @media screen and (max-width: 700px) {
-    .row {   
-      flex-direction: column;
-    }
-  }
-  
-  /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-  @media screen and (max-width: 400px) {
-    .navbar a {
-      float: none;
-      width: 100%;
-    }
-  }
-  @media screen and (max-width: 400px) {
-.btn a {
-  
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
     float: none;
     width: 100%;
+  }
+}
+@media screen and (max-width: 400px) {
+.btn a {
+
+  float: none;
+  width: 100%;
 
 } 
-  }
+}

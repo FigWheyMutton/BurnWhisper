@@ -111,6 +111,7 @@ console.log(userData)
 // Logout using passport methods
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
+    console.log('about to destroy session')
     req.session.destroy(() => {
       res.status(204).end();
     });

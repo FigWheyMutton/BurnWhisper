@@ -24,7 +24,11 @@
         <a href="#" class="pure-menu-link">Profile</a>
       </li>
       </li>
+{{#if logged_in}}
+        <a href="/signup"class="pure-menu-link pure-menu-heading">Logout</a>
+{{else}}
       <a href="/login" class="pure-menu-link pure-menu-heading">Login</a>
+{{/if}}
     </ul>
     </header>
   </div>
@@ -48,7 +52,6 @@
     <div class="fakeimg" style="height:60px;">USC</div>
   </div>
   </div>
-  {{!-- {{!-- {{#if !logged_in}}
   <div class="container2">
   <div class="post_feed">
     <h2>Your Feed:</h2>
@@ -61,17 +64,10 @@
     </div>
   </div>
   </div>
-  <div class="container2">
-  <div class="post_feed">
-    <h2>Your Feed:</h2>
-  </div> --}}
 {{{body}}}
-  <div class="main">
-  <h2 class = "postinfo"></h2>
-   <p class="post_text"></p>
-    <div class = "bottombar">
-      <input type ="image" src="../../assets/thumbs up.jpg" name="Upvote Button" class="upvotes" id="upvoteBtn">
-      </div>
-    </div>
+
   </div>
 </body>
+{{#if logged_in}}
+<script src="/public/js/logout.js"
+{{/if}}

@@ -45,6 +45,8 @@
 </div>
 
 <div class="row">
+  <div class="container1">
+
   <div class="side">
     <h2>Search Schools</h2>
     <h5></h5>
@@ -56,13 +58,36 @@
     <div class="fakeimg" style="height:60px;">UCLA</div><br>
     <div class="fakeimg" style="height:60px;">USC</div>
   </div>
+  </div>
   {{!-- {{#if !logged_in}}
+  <div class="container2">
+  <div class="post_feed">
+    <h2>Your Feed:</h2>
     <div class="main">
-      <h2 class = "postinfo"></h2>
-      <p>Please Log In to see posts</p>
+  <h2 class = "postinfo"></h2>
+   <p class="post_text">Please Log In to see posts</p>
+    <div class = "bottombar">
+      <input type ="image" src="../../assets/thumbs up.jpg" name="Upvote Button" class="upvotes" id="upvoteBtn">
+      </div>
     </div>
-  {{/if}} --}}
-  {{{body}}}
+  </div>
+  </div>
+
+
+  <div class="container2">
+  <div class="post_feed">
+    <h2>Your Feed:</h2>
+  </div>
+  {{!-- {{{body}}} --}}
+  <div class="main">
+  <h2 class = "postinfo"></h2>
+   <p class="post_text"></p>
+    <div class = "bottombar">
+      <input type ="image" src="../../assets/thumbs up.jpg" name="Upvote Button" class="upvotes" id="upvoteBtn">
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
 

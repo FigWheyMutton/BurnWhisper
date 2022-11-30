@@ -42,17 +42,15 @@ body {
  
 .row {  
   display: -ms-flexbox; /* IE10 */
-  display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
-  flex-wrap: wrap;
+  display: flex; /* IE10 */
+  width: 100%;
 }
 
 /* added formatting for content */
 .side {
-  -ms-flex: 30%; /* IE10 */
-  flex: 10%;
-  background-color: #fbfbfb;
-  padding: 5px 10px 0px 10px;
+  min-width: 90%;
+  padding-left: 20px;
+  border-right: solid grey;
 }
 
 /* ADDED CSS FOR NAVBARS */
@@ -79,26 +77,53 @@ background-color: #ce949c;
 padding-right: 10px;
 }
 /* //ADDED IN FOR THE HOMEPAGE CSS */
-.main {   
+
+.post_feed {
   display: flex;
-  -ms-flex: 70%; /* IE10 */
-  flex: 70%;
-  margin: 20px 5px 20px 5px;
+  height:20px;
+  width: 100%;
+  justify-content: flex-start;
+  }
+
+.main {   
+
+  display: flex;
+  margin: 50px 5px 20px 5px;
   background-color: rgb(114, 96, 96);
   width: 100%;
+  min-height: 370px;
+  height: fit-content;
   height:fit-content;
+  flex-direction: column;
+}
+
+.container1 {
+  min-width: 20%;
+  display: flex;
+}
+.container2 {
+  padding-left: 20px;
+  min-width: 75%;
+  min-height: 250px;
+  display: flex;
+  justify-content: space-evenly;
   flex-direction: column;
 }
 
 .postinfo {
   height: fit-content;
   width: 100%;
+  min-height: 30px;
   border-bottom: black solid;
   padding: 0px 0px 10px 10px;
 }
 
+.post_text{ 
+  min-height: 200px;
+}
 .bottombar {
 display:flex;
+align-items: flex-end;
 max-height: 40px;
 width: 100%;
 border-top: black solid;
@@ -112,7 +137,7 @@ border-top: black solid;
 
 .fakeimg {
   background-color: rgb(114, 96, 96);
-  max-width: 20%;
+  max-width: 80%;
   padding: 20px;
 }
 

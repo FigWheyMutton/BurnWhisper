@@ -1,3 +1,4 @@
+
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
@@ -13,6 +14,7 @@ console.log(email, password)
 
     if (response.ok) {
       document.location.replace('/');
+      // var logoutBtn = document.getElementById('')
     } else {
       alert('Failed to log in.');
     }

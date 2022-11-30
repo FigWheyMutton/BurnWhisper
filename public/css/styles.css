@@ -107,7 +107,6 @@ padding-right: 10px;
   min-width: 75%;
   min-height: 250px;
   display: flex;
-  justify-content: space-evenly;
   flex-direction: column;
 }
 
@@ -149,7 +148,7 @@ border-top: black solid;
 }
 
 .astext {
-
+  text-decoration: underline;
   background:none;
   border: none;
   margin: 0;

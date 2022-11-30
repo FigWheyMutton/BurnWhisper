@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User, Post, Vote, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+
 // GET /api/users
 router.get('/', (req, res) => {
   // access our user model and run .findAll() method -- similar to SELECT * FROM users;
@@ -76,6 +77,7 @@ router.post('/login', async (req, res) => {
   console.log(req.body)
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
+    
 console.log(userData)
     if (!userData) {
       res

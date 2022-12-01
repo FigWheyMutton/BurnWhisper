@@ -42,7 +42,7 @@ router.get('/', (req,res)=>{
 });
 
 
-// get a single post by ID; GET /api/post/1
+// get a single post by ID; GET /api/posts/1
 router.get('/:id', (req,res)=>{
     Post.findOne({
         where: {

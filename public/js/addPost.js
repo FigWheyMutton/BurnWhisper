@@ -1,4 +1,4 @@
-async function newFormHandler(event) {
+const newFormHandler = async (event) => {
     event.preventDefault();
 
     const post_text = document.querySelector('input[name="post-text"]').value;
@@ -6,13 +6,13 @@ async function newFormHandler(event) {
     const response = await fetch(`/api/posts`, {
         method: 'POST',
         body: JSON.stringify({
-        post_text
+            post_text
         }),
         headers: {
-        'Content-Type': 'application/json'
+            'Content-Type': 'application/json'
         }
     });
-
+    
     if (response.ok) {
         document.location.replace('/');
     } else {

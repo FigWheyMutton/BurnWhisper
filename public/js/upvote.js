@@ -1,5 +1,5 @@
 // upvote button functionality 
-async function upvoteClickHandler(event) {
+const upvoteClickHandler = async(event) => {
     event.preventDefault();
 
   // taking id from http://localhost:3001/post/1

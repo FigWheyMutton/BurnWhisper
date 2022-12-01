@@ -1,14 +1,40 @@
-  <div class="container2">
-  <div class="post_feed">
-    <h2>Your Feed:</h2>
-  </div>
-{{#each posts as |post|}}
-<div class="main">
-  <h2 class = "postinfo"></h2>
-   <p class="post_text"></p>
-    <div class = "bottombar">
-      <input type ="image" src="../../assets/thumbs up.jpg" name="Upvote Button" class="upvotes" id="upvoteBtn">
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+{{#if loggedIn}}
+    <form class="new-post-form">
+        <input type="text" class="form-control bg-dark text-white" id="post-input" name="post-text" placeholder="What's on your mind?" />    
+        <button type="submit" class="btn btn-warning" id="btn-post">Post</button>
+    </form>
+{{/if}}
     </div>
-{{/each}}
   </div>
+</div>
+
+<div class="container-title">
+  <div class="row">
+    <div class="col-12">
+      <div id="header-newsfeed-container">
+        <h2 class="text-warning" id="header-newsfeed">Your Feed:</h2>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<ol class="post-list" style="height: 80vh; overflow-y: scroll">
+<!-- posts array -->
+{{#each posts as |post|}}
+  <ul>
+      {{> post-info post }} 
+    </div>
+  </ul>
+{{/each}}
+</ol>
+
+
+
+{{#if loggedIn}}
+<script src="/js/addPost.js"></script>
+<script src="/js/search.js"></script>
+{{/if}}

@@ -9,17 +9,18 @@ body {
 
 .header {
   padding: .4px;
+  width: 100%;
   text-align: center;
-  background: #ffffff;
-  color: rgb(47, 45, 45);
+  color: rgb(122, 76, 76);
   font-style: oblique;
 }
 
 .header h1 {
   font-size: 40px;
-  padding: 2rem;
+  padding: 1rem;
   opacity: 90%;
-  background-image: url("/assets/header.png")
+  background-image: url("/assets/header.png");
+
 }
 .button {
   background-color: #ce949c;
@@ -45,7 +46,13 @@ body {
   display: flex; /* IE10 */
   width: 100%;
 }
-
+.footer h2{
+font-size: 20px;
+}
+span {
+text-align: center;
+  content: "\2665";
+}
 /* added formatting for content */
 .side {
   min-width: 90%;
@@ -128,6 +135,15 @@ max-height: 40px;
 width: 100%;
 border-top: black solid;
 }
+.login-form {
+text-align: right;
+line-height: 3rem;
+}
+
+.form-group {
+  text-align: right;
+line-height: 3rem;
+}
 
 .upvotes{
   max-width: inherit;
@@ -142,9 +158,10 @@ border-top: black solid;
 }
 
 .footer {
-  padding: 10px;
   text-align: center;
-  background: #ddd;
+  background: rgb(249, 198, 248);
+  line-height: 3rem;
+
 }
 
 .astext {

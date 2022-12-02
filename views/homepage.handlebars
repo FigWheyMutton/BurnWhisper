@@ -1,15 +1,8 @@
 <div class="container2">
   <div class="row">
     <div class="col-12">
-{{#if loggedIn}}
-    <form class="new-post-form">
-        <input type="text" class="form-control bg-dark text-white" id="post-input" name="post-text" placeholder="What's on your mind?" />    
-        <button type="submit" class="btn btn-warning" id="btn-post">Post</button>
-    </form>
-{{/if}}
-    
-
-<div class="container-title">
+      
+      <div class="container-title">
   <div class="row">
     <div class="col-12">
       <div id="header-newsfeed-container">
@@ -19,6 +12,15 @@
     </div>
   </div>
 </div>
+
+{{#if loggedIn}}
+    <form class="new-post-form">
+        <input type="text" class="form-control bg-dark text-white" id="post-input" name="post-text" placeholder="What's on your mind?" />    
+        <button type="submit" class="btn btn-warning" id="btn-post">Post</button>
+    </form>
+{{/if}}
+    
+
 
 
 {{#each posts as |post|}}

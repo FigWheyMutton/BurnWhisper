@@ -8,11 +8,11 @@ router.get('/', withAuth,(req, res) => {
     
   // The Promise.all allows us to have two findAll queries
   Promise.all ([
-  
+    
     User.findAll({
-        where: {
-            // use the ID from express-session
-            id: req.session.express.user.id
+      where: {
+        // use the ID from express-session
+        id: req.session.user_id
     
         },
         attributes: [
@@ -25,7 +25,7 @@ router.get('/', withAuth,(req, res) => {
     Post.findAll({
         where: {
         // use the ID from express
-        user_id: req.session.user.id
+        user_id: req.session.user_id
         },
         attributes: [
             'id',

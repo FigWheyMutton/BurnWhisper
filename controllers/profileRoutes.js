@@ -4,7 +4,7 @@ const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 // profile displaying posts created by logged in users 
-router.get('/', withAuth,(req, res) => {
+router.get('/profile', withAuth,(req, res) => {
     
   // The Promise.all allows us to have two findAll queries
   Promise.all ([

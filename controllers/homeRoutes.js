@@ -29,12 +29,14 @@ router.get('/', // withAuth, */
             model: User,
             attributes: ['username', 'id']
           }
-        ]
+        ],
+        raw: true,
+        nest: true,
       })
         .then(dbPostData => {
           // pass a single post object into the homepage template
-          const posts = dbPostData.map(post => post.get({ plain: true }));
-    
+          // const posts = dbPostData.map(post => post.get({ plain: true }));
+          console.log(dbPostData)
           // defining log-in status
           // let loginStatus;
           // if (typeof req.session != 'undefined') {
@@ -44,7 +46,7 @@ router.get('/', // withAuth, */
           //     loginStatus = false;
           // }
           
-          res.render('homepage', { posts,  loggedIn: req.session.logged_in }
+          res.render('homepage', { posts: dbPostData, loggedIn: req.session.logged_in }
           );
         })
         .catch(err => {

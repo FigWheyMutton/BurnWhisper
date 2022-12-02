@@ -107,6 +107,7 @@ padding-right: 10px;
 .container1 {
   min-width: 20%;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .container2 {
@@ -115,6 +116,7 @@ padding-right: 10px;
   min-height: 250px;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .postinfo {

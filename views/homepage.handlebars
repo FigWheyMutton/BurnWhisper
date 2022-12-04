@@ -2,7 +2,7 @@
   <div class="content">
     <div class="col-12">
       <div class="container-title">
-  
+
   <div class="row">
     <div class="col-12">
         <h2 class="text-warning" id="header-newsfeed">Your Feed:</h2>
@@ -10,11 +10,11 @@
       
     </div>
   </div>
-</div>
+</div> 
 
 {{#if loggedIn}}
     <form class="new-post-form">
-        <input type="text" class="form-control bg-dark text-white" id="post-input" name="post-text" placeholder="What's on your mind?" />    
+        <input type="text" class="form-control form-control2 bg-dark text-white" id="post-input" name="post-text" placeholder="What's on your mind?" />    
         <button type="submit" class="btn btn-warning" id="btn-post">Post</button>
     </form>
 {{/if}}
@@ -30,7 +30,12 @@
       <input type ="image" src="../../assets/thumbs up.jpg" name="Upvote Button" class="upvotes" id="upvoteBtn">
       </div>
     </div>
+
+
+
 {{/each}}
+</div>
+      <div class="sidebar">
 </div>
   </div>
 </div>

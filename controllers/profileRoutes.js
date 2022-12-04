@@ -64,7 +64,7 @@ router.get('/', withAuth,(req, res) => {
         //serialize data before passing to template
         const users = arrData[0].map(user => user.get({ plain: true }));
         const posts = arrData[1].map(post => post.get({ plain: true }));
-        res.render('profile', { posts, users, loggedIn: loginStatus }); 
+        res.render('profile', { posts, users, loggedIn: true }); 
       })
       .catch(err => {
         console.log(err);

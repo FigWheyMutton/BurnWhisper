@@ -39,17 +39,24 @@
           <div class="card-comments card-body">
             <div class="overflow-auto">
               {{> comments comments}}
+
             </div>
+
           </div>
+
         </div>
-        <form class="new-post-form">
-          <input type="text" class="form-control form-control2 bg-dark text-white" id="post-input" name="post-text"
-            placeholder="Add comment" />
-          <button type="submit" class="btn btn-warning" id="btn-post">Reply</button>
-        </form>
-        {{/if}}
+
       </div>
+
+
     </div>
+    {{/if }}
+    <form class="new-post-form">
+      <input type="text" class="form-control form-control2 bg-dark text-white" id="post-input" name="post-text"
+        placeholder="Add comment" />
+      <button type="submit" class="btn btn-warning" id="btn-post">Reply</button>
+    </form>
+
 
 
 
@@ -62,4 +69,5 @@
 {{#if loggedIn}}
 <script src="/js/addPost.js"></script>
 <script src="/js/search.js"></script>
+
 {{/if}}

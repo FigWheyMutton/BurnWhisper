@@ -144,6 +144,16 @@ span {
   padding: 40px;
 }
 
+.container3 {
+  position: absolute;
+  width: 80%;
+  line-height: 3rem;
+  display: flex;
+  flex-direction: column;
+  border-left: solid grey;
+  padding: 40px;
+}
+
 .content {
   display: flex;
   flex-direction: column;
@@ -211,6 +221,22 @@ line-height: 3rem;
 
 }
 
+.profile-list {
+  background-color: azure;
+}
+.bio {
+  display: inline-block;
+  width: auto;
+  border-style: solid;
+  border-color: gray;
+  border-width: 1px;
+  padding: 5px 10px 10px 5px;
+  
+}
+
+.profiledivider {
+  border-bottom: grey 1px solid;
+}
 .astext {
   text-decoration: underline;
   background:none;

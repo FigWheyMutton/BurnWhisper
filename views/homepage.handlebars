@@ -3,53 +3,61 @@
     <div class="col-12">
       <div class="container-title">
 
-  <div class="row">
-    <div class="col-12">
-        <h2 class="text-warning" id="header-newsfeed">Your Feed:</h2>
-      </div>
-      
-    </div>
-  </div>
-</div> 
+        <div class="row">
+          <div class="col-12">
+            <h2 class="text-warning" id="header-newsfeed">Your Feed:</h2>
+          </div>
 
-{{#if loggedIn}}
+        </div>
+      </div>
+    </div>
+
+    {{#if loggedIn}}
     <form class="new-post-form">
-        <input type="text" class="form-control form-control2 bg-dark text-white" id="post-input" name="post-text" placeholder="What's on your mind?" />    
-        <button type="submit" class="btn btn-warning" id="btn-post">Post</button>
+      <input type="text" class="form-control form-control2 bg-dark text-white" id="post-input" name="post-text"
+        placeholder="What's on your mind?" />
+      <button type="submit" class="btn btn-warning" id="btn-post">Post</button>
     </form>
-{{/if}}
-    
+    {{/if}}
 
 
 
-{{#each posts as |post|}}
-<div class="main">
-  <h2 class = "postinfo">{{user.username}}</h2>
-   <p class="post_text">{{post.post_text}}</p>
-    <div class = "bottombar">
-      <input type ="image" src="/images/thumbs up.jpg" name="Upvote Button" class="upvotes" id="upvoteBtn">
-      {{#if comments}}
-                <svg class="bi bi-dot" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                </svg>
-                <a class="btn text-warning" id="view-comment-btn" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">View Comments</a>
-                    <div class="collapse" id="collapseExample">
-                        <div class="card-comments card-body">
-                            <div class="overflow-auto">
-                                {{> comments comments}}
-                            </div>
-                        </div>
-                    </div>
-                {{/if}}        
+
+    {{#each posts as |post|}}
+    <div class="main">
+      <h2 class="postinfo">{{user.username}}</h2>
+      <p class="post_text">{{post.post_text}}</p>
+      <div class="bottombar">
+        <input type="image" src="/images/thumbsup.png" name="Upvote Button" class="upvotes" id="upvoteBtn">
+        {{#if comments}}
+        <svg class="bi bi-dot" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg">
+        </svg>
+        <a class="btn text-warning" id="view-comment-btn" data-toggle="collapse" href="#collapseExample" role="button"
+          aria-expanded="false" aria-controls="collapseExample">View Comments</a>
+        <div class="collapse" id="collapseExample">
+          <div class="card-comments card-body">
+            <div class="overflow-auto">
+              {{> comments comments}}
+            </div>
+          </div>
+        </div>
+        <form class="new-post-form">
+          <input type="text" class="form-control form-control2 bg-dark text-white" id="post-input" name="post-text"
+            placeholder="Add comment" />
+          <button type="submit" class="btn btn-warning" id="btn-post">Reply</button>
+        </form>
+        {{/if}}
       </div>
     </div>
 
 
 
-{{/each}}
-</div>
-      <div class="sidebar">
-</div>
+    {{/each}}
   </div>
+  <div class="sidebar">
+  </div>
+</div>
 </div>
 {{#if loggedIn}}
 <script src="/js/addPost.js"></script>

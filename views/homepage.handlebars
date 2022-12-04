@@ -27,7 +27,19 @@
   <h2 class = "postinfo">{{user.username}}</h2>
    <p class="post_text">{{post.post_text}}</p>
     <div class = "bottombar">
-      <input type ="image" src="../../assets/thumbs up.jpg" name="Upvote Button" class="upvotes" id="upvoteBtn">
+      <input type ="image" src="/images/thumbs up.jpg" name="Upvote Button" class="upvotes" id="upvoteBtn">
+      {{#if comments}}
+                <svg class="bi bi-dot" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                </svg>
+                <a class="btn text-warning" id="view-comment-btn" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">View Comments</a>
+                    <div class="collapse" id="collapseExample">
+                        <div class="card-comments card-body">
+                            <div class="overflow-auto">
+                                {{> comments comments}}
+                            </div>
+                        </div>
+                    </div>
+                {{/if}}        
       </div>
     </div>
 

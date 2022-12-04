@@ -124,9 +124,8 @@ span {
   margin: 90px 5px 10px 5px;
   background-color: rgb(181, 159, 159);
   width: 100%;
-  min-height: 370px;
+  min-height: 320px;
   height: fit-content;
-  height:fit-content;
   flex-direction:column;
 }
 
@@ -136,7 +135,6 @@ span {
 }
 
 .container2 {
-  text-align: center;
   position: absolute;
   width: 100%;
   line-height: 3rem;
@@ -161,12 +159,12 @@ span {
 }
 
 .post_text{ 
-  min-height: 200px;
+  min-height: 130px;
 }
 .bottombar {
 display:flex;
 align-items: flex-end;
-max-height: 40px;
+max-height: 50px;
 width: 100%;
 border-top: black solid;
 }
@@ -196,6 +194,7 @@ line-height: 3rem;
 .upvotes{
   max-width: inherit;
   max-height: inherit;
+  padding-top: 10px;
 }
 /*ALL FOR HOMEPAGE CSS  */
 

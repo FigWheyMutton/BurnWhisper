@@ -56,11 +56,16 @@ span {
 }
 /* added formatting for content */
 .side {
-  min-width: 90%;
+  min-width: 100%;
   padding-left: 20px;
-  border-right: solid grey;
+
 }
 
+.sidebar {
+  background-color: paleturquoise;
+  max-width: 15%;
+  display: flex;
+}
 /* ADDED CSS FOR NAVBARS */
 .navbar {
   display:flex;
@@ -92,11 +97,20 @@ span {
   height: 70px;
   width: 500px;
 }
+
+.form-control {
+  margin-right: 5px;
+}
+.form-control2 {
+  padding-bottom: 40px;
+}
+
 .btn-warning {
   display: flex;
   justify-content: center;
   align-items: center;
   width: fit-content;
+  margin-top: 10px;
 }
 .post_feed {
   display: flex;
@@ -106,7 +120,6 @@ span {
 }
 
 .main {   
-  
   display: flex;
   margin: 90px 5px 10px 5px;
   background-color: rgb(181, 159, 159);
@@ -118,9 +131,8 @@ span {
 }
 
 .container1 {
-  min-width: 20%;
+  min-width: 15%;
   display: flex;
-  flex-wrap: wrap;
 }
 
 .container2 {
@@ -130,11 +142,14 @@ span {
   line-height: 3rem;
   display: flex;
   flex-direction: column;
+  border-left: solid grey;
+  padding: 40px;
 }
 
 .content {
   display: flex;
   flex-direction: column;
+  max-width: 80%;
 }
 
 .postinfo {

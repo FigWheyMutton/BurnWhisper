@@ -3,6 +3,7 @@ const newFormHandler = async (event) => {
 
     const post_text = document.querySelector('input[name="post-text"]').value;
 
+   alert('reading addPost')
     const response = await fetch(`/api/posts`, {
         method: 'POST',
         body: JSON.stringify({

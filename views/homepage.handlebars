@@ -28,7 +28,7 @@
       <h2 class="postinfo">{{user.username}}</h2>
       <p class="post_text">{{post.post_text}}{{comment.comment_text}}</p>
       <div class="bottombar">
-        <input type="image" src="/images/thumbsup.png" name="Upvote Button" class="upvotes" id="upvoteBtn">
+        <input type="image" src="/images/thumbs.png" name="Upvote Button" class="upvotes" id="upvoteBtn">
         {{#if comments}}
         <svg class="bi bi-dot" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
           xmlns="http://www.w3.org/2000/svg">
@@ -46,8 +46,7 @@
         </div>
 
       </div>
-
-
+<div class="left-background"></div>
     </div>
     {{/if }}
     <form class="new-post-form">
@@ -62,11 +61,12 @@
 
 
     {{/each}}
-  </div>
+    
+  {{!-- </div>
   <div class="sidebar">
   </div>
 </div>
-</div>
+</div> --}}
 {{#if loggedIn}}
 <script src="/js/addPost.js"></script>
 <script src="/js/search.js"></script>

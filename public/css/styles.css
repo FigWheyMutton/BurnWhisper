@@ -218,8 +218,8 @@ border-top: black solid;
 .login-form {
 text-align: right;
 position: absolute;
-top: 38%;
-left: 20%;
+top: 43%;
+left: 30%;
 width: 100%;
 text-align: left;
 line-height: 3rem;
@@ -229,8 +229,8 @@ line-height: 3rem;
 .login-card {
   text-align: right;
   position: absolute;
-  top: 38%;
-  left: 20%;
+  top: 43%;
+  left: 30%;
   width: 100%;
   text-align: left;
   line-height: 3rem;

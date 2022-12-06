@@ -39,15 +39,19 @@ router.get('/:id', (req, res) => {
 
 // create a comment by an authenticated user; POST /api/comments
 router.post('/', withAuth, (req,res) => {
+    console.log('req.body', req.body)
+    console.log('req.session', req.session)
     //check session
     if (req.session){
         Comment.create({
             comment_text: req.body.comment_text,
             // user_id: req.session.user_id,
-            user_id: req.session.user.id,
-            post_id: req.body.post_id
+            user_id: req.session.user_id,
+            post_id: parseInt(req.body.post_id)
         })
-        .then(dbCommentData => res.json(dbCommentData))
+        .then(dbCommentData => {
+            console.log('dbCommentData', dbCommentData)
+            res.json(dbCommentData)})
         .catch(err => {
             console.log(err);
             res.status(400).json(err);

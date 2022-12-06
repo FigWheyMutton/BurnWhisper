@@ -37,21 +37,17 @@
         </svg>
         {{!-- <a class="btn text-warning" id="view-comment-btn" data-toggle="collapse" href="#collapseExample"
           role="button" aria-expanded="false" aria-controls="collapseExample">View Comments</a> --}}
-        <div class="collapse" id="collapseExample">
-          <div class="card-comments card-body">
-            <div class="overflow-auto">
-
-            </div>
-
-          </div>
-
-        </div>
-
+        {{!-- <div class="collapse" id="collapseExample"> --}}
+          {{!-- <div class="card-comments card-body"> --}}
+            {{!-- <div class="overflow-auto">
+            </div> --}}
+          {{!-- </div> --}}
+        {{!-- </div> --}}
       </div>
-      <div class="left-background"></div>
-      {{!-- {{> comments comments}} --}}
+      {{!-- <div class="left-background"></div> --}}
     </div>
     {{/if }}
+       {{> comments}}
     <form class="comment-form" data-post-id={{id}}>
       <input type="text" class="form-control form-control2 bg-dark text-white" id="post-input" name="comment-body"
         placeholder="Add comment" />

@@ -1,6 +1,8 @@
-<div class="container2">
-  <div class="content">
+  <div class="content">  
+        <div class="container2">
+
     <div class="col-12">
+
       <div class="container-title">
 
         <div class="row">
@@ -50,7 +52,7 @@
     </div>
     {{/if }}
     <form class="new-post-form">
-      <input type="text" class="form-control form-control2 bg-dark text-white" id="comment-input" name="comment-body"
+      <input type="text" class="form-control form-control2 bg-dark text-white" id="post-input" name="post-text"
         placeholder="Add comment" />
       <button type="submit" class="btn btn-warning" id="btn-post">Reply</button>
       {{> comments comments}}
@@ -69,6 +71,6 @@
 </div> --}}
 {{#if loggedIn}}
 <script src="/js/addPost.js"></script>
-<script src="/js/search.js"></script>
+<script src="/js/comment.js"></script>
 
 {{/if}}

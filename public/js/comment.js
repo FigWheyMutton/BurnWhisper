@@ -11,7 +11,7 @@ const commentFormHandler = async(event) => {
     console.log(comment_text, 'comment_text')
      console.log(post_id, 'This comment is loaded');
     // if there is a comment -- preventing from users submitting empty comments 
-    if (comment_text) {
+    // if (comment_text) {
         const response = await fetch('/api/comments', {
           method: 'POST',
           body: JSON.stringify({
@@ -29,6 +29,6 @@ const commentFormHandler = async(event) => {
           alert(response.statusText);
         }
       }
-  }
+    // };
   
   document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);

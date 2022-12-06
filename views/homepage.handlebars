@@ -1,5 +1,5 @@
-  <div class="content">  
-        <div class="container2">
+<div class="content">
+  <div class="container2">
 
     <div class="col-12">
 
@@ -35,8 +35,8 @@
         <svg class="bi bi-dot" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
           xmlns="http://www.w3.org/2000/svg">
         </svg>
-        {{!-- <a class="btn text-warning" id="view-comment-btn" data-toggle="collapse" href="#collapseExample" role="button"
-          aria-expanded="false" aria-controls="collapseExample">View Comments</a> --}}
+        {{!-- <a class="btn text-warning" id="view-comment-btn" data-toggle="collapse" href="#collapseExample"
+          role="button" aria-expanded="false" aria-controls="collapseExample">View Comments</a> --}}
         <div class="collapse" id="collapseExample">
           <div class="card-comments card-body">
             <div class="overflow-auto">
@@ -48,14 +48,15 @@
         </div>
 
       </div>
-<div class="left-background"></div>
+      <div class="left-background"></div>
+      {{!-- {{> comments comments}} --}}
     </div>
     {{/if }}
-    <form class="new-post-form">
-      <input type="text" class="form-control form-control2 bg-dark text-white" id="post-input" name="post-text"
+    <form class="comment-form" data-post-id={{id}}>
+      <input type="text" class="form-control form-control2 bg-dark text-white" id="post-input" name="comment-body"
         placeholder="Add comment" />
       <button type="submit" class="btn btn-warning" id="btn-post">Reply</button>
-      {{> comments comments}}
+
 
     </form>
 
@@ -63,8 +64,9 @@
 
 
     {{/each}}
-    
-  {{!-- </div>
+
+    {{!--
+  </div>
   <div class="sidebar">
   </div>
 </div>

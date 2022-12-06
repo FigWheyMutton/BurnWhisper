@@ -3,10 +3,11 @@ const commentFormHandler = async(event) => {
   
     const comment_text = document.querySelector('input[name="comment-body"]').value.trim();
   
-    const post_id = document.querySelector('input[name="post-body"]').value.trim();
+    // const post_id = document.querySelector('input[name="post-body"]').value.trim();
     // window.location.toString().split('/')[
     //   window.location.toString().split('/').length - 1
-    ;
+   const post_id = document.querySelector('.comment-form').getAttribute('data-post-id')
+
   
     console.log(comment_text, 'comment_text')
      console.log(post_id, 'This comment is loaded');
